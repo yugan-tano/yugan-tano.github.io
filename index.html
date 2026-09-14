@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陈杉杉 · Shanshan Chen — 具身智能 / 世界模型</title>
+<meta name="description" content="陈杉杉的个人主页：具身智能、世界模型、机器人强化学习方向。DreamerV3、UniWM、SmartAgroShield 等项目。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 天空背景（云朵 + 星星） -->
+<div class="sky" aria-hidden="true">
+  <div class="cloud cloud-1"></div>
+  <div class="cloud cloud-2"></div>
+  <div class="cloud cloud-3"></div>
+  <div class="star star-1"></div>
+  <div class="star star-2"></div>
+  <div class="star star-3"></div>
+  <div class="star star-4"></div>
+  <div class="star star-5"></div>
+</div>
+
+<!-- 导航 -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">🌸 Chen</a>
+    <div class="nav-links">
+      <a href="#wall">项目墙</a>
+      <a href="#notes">笔记</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero" id="home">
+  <div class="hero-robot" aria-hidden="true">
+    <div class="robot">
+      <div class="r-antenna"></div>
+      <div class="r-head">
+        <div class="r-eye l"></div>
+        <div class="r-eye r"></div>
+      </div>
+      <div class="r-body">
+        <div class="r-core"></div>
+      </div>
+      <div class="r-arm left"></div>
+      <div class="r-arm right"></div>
+      <div class="r-wheel left"></div>
+      <div class="r-wheel right"></div>
+    </div>
+  </div>
+  <h1 class="hero-title">陈杉杉</h1>
+  <p class="hero-sub">Shanshan Chen</p>
+  <p class="hero-desc">具身智能 · 世界模型 · 机器人强化学习</p>
+  <p class="hero-en">Embodied AI / World Models / Model-Based RL</p>
+  <div class="hero-badges">
+    <a class="badge" href="https://github.com/yugan-tano">GitHub</a>
+    <a class="badge" href="mailto:cse.sschen23@gzu.edu.cn">Email</a>
+  </div>
+  <div class="hero-scroll">下滑探索</div>
+</header>
+
+<main>
+  <!-- 项目照片墙 -->
+  <section class="section section-wide" id="wall">
+    <h2 class="section-title">项目墙</h2>
+    <p class="wall-hint">把鼠标移到照片上，它会放大、摆正，看看每个项目吧</p>
+
+    <div class="wall-wrap">
+      <!-- 左侧：便签贴（个人信息，点击展开关于我）+ 技能 -->
+      <aside class="note-column">
+        <details class="sticky-note">
+          <summary>
+            <span class="tape"></span>
+            <div class="avatar-ring"><img src="assets/photos/avatar.jpg" alt="陈杉杉的头像"></div>
+            <div class="note-name">陈杉杉</div>
+            <div class="note-en">Shanshan Chen</div>
+            <div class="note-line">贵州大学 · 人工智能（本科）</div>
+            <div class="note-line note-dir">具身智能 · 世界模型</div>
+            <div class="note-links">
+              <a href="https://github.com/yugan-tano">GitHub</a>
+              <span>·</span>
+              <a href="mailto:cse.sschen23@gzu.edu.cn">Email</a>
+            </div>
+            <div class="note-hint">点击展开关于我</div>
+          </summary>
+          <div class="note-about">
+            <p>你好！我是陈杉杉，贵州大学（211）人工智能专业本科生。</p>
+            <p>研究方向聚焦具身智能（Embodied AI）与世界模型（World Model），探索机器人端到端学习与自主导航。</p>
+            <p>我独立完成了基于 DreamerV3 的世界模型导航系统，正在复现 UniWM 统一世界模型。关注 Model-Based RL、潜在空间想象规划、Sim2Real 与视觉表征学习。</p>
+            <p>长期目标：从仿真到真实环境的具身智能迁移。</p>
+          </div>
+        </details>
+
+        <div class="note-skills">
+          <div class="skills-title">技能</div>
+          <div class="skills-tags">
+            <span>Python</span>
+            <span>PyTorch</span>
+            <span>JAX</span>
+            <span>Git</span>
+            <span>Linux</span>
+            <span>Docker</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- 照片墙（错落排布） -->
+      <div class="wall">
+        <!-- 主照片：DreamerV3（横版，中心偏右） -->
+        <figure class="polaroid main" tabindex="0">
+          <div class="pp-img">
+            <img src="assets/photos/dreamer_demo.png" alt="DreamerV3 演示系统">
+            <div class="pp-overlay">
+              <p class="pp-desc">RSSM 世界模型 · 想象规划 · 端到端视觉导航</p>
+              <a class="pp-link" href="https://github.com/yugan-tano/home-nav-dreamer">查看仓库</a>
+            </div>
+          </div>
+          <figcaption>
+            <span class="pp-title">DreamerV3 世界模型导航</span>
+            <span class="pp-tag tag-research">在研</span>
+          </figcaption>
+        </figure>
+
+        <!-- UniWM（第二大，在研，横版） -->
+        <figure class="polaroid p-uniwm" tabindex="0">
+          <div class="pp-img">
+            <img src="assets/covers/cover_1.png" alt="UniWM 统一世界模型">
+            <div class="pp-overlay">
+              <p class="pp-desc">Anole-7b · LoRA · 记忆银行</p>
+              <a class="pp-link" href="https://github.com/yugan-tano/UniWM">查看仓库</a>
+            </div>
+          </div>
+          <figcaption>
+            <span class="pp-title">UniWM 统一世界模型</span>
+            <span class="pp-tag tag-research">在研</span>
+          </figcaption>
+        </figure>
+
+        <!-- 智农虫盾（竖版） -->
+        <figure class="polaroid p-agro" tabindex="0">
+          <div class="pp-img">
+            <img src="assets/covers/cover_2.png" alt="智农虫盾">
+            <div class="pp-overlay">
+              <p class="pp-desc">ShuffleNetV2 · 病害识别</p>
+              <a class="pp-link" href="https://github.com/yugan-tano/SmartAgroShield">查看仓库</a>
+            </div>
+          </div>
+          <figcaption>
+            <span class="pp-title">智农虫盾</span>
+            <span class="pp-tag tag-done">已完成</span>
+          </figcaption>
+        </figure>
+
+        <!-- dofbot 机械臂 -->
+        <figure class="polaroid p-dofbot" tabindex="0">
+          <div class="pp-img">
+            <img src="assets/photos/dofbot.jpg" alt="dofbot 机械臂">
+            <div class="pp-overlay">
+              <p class="pp-desc">机械臂 · 视觉与运动控制</p>
+            </div>
+          </div>
+          <figcaption>
+            <span class="pp-title">dofbot 机械臂</span>
+            <span class="pp-tag tag-project">项目</span>
+          </figcaption>
+        </figure>
+
+        <!-- 猕猴桃溃疡病（方形） -->
+        <figure class="polaroid p-kiwi" tabindex="0">
+          <div class="pp-img">
+            <img src="assets/covers/cover_3.png" alt="猕猴桃溃疡病分类">
+            <div class="pp-overlay">
+              <p class="pp-desc">SE-ResNet · 图像分类</p>
+              <a class="pp-link" href="https://github.com/yugan-tano/kiwi_canker_classification">查看仓库</a>
+            </div>
+          </div>
+          <figcaption>
+            <span class="pp-title">猕猴桃溃疡病</span>
+            <span class="pp-tag tag-done">已完成</span>
+          </figcaption>
+        </figure>
+
+        <!-- netSeamLess（方形，最小） -->
+        <figure class="polaroid p-net" tabindex="0">
+          <div class="pp-img">
+            <img src="assets/covers/cover_4.png" alt="netSeamLess">
+            <div class="pp-overlay">
+              <p class="pp-desc">远程办公 · 低延迟</p>
+              <a class="pp-link" href="https://github.com/yugan-tano/netSeamLess">查看仓库</a>
+            </div>
+          </div>
+          <figcaption>
+            <span class="pp-title">netSeamLess</span>
+            <span class="pp-tag tag-idea">概念</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 学习笔记 -->
+  <section class="section" id="notes">
+    <h2 class="section-title">学习笔记</h2>
+    <div class="note-rule"></div>
+    <a class="note-rule-link" href="https://github.com/yugan-tano/learning-record">查看笔记</a>
+  </section>
+</main>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <p>🌸 陈杉杉 · Shanshan Chen</p>
+  <p class="footer-sub">像素风 · 浅粉浅蓝 · 具身智能</p>
+  <p class="footer-link"><a href="https://github.com/yugan-tano">GitHub 主页</a> · <a href="mailto:cse.sschen23@gzu.edu.cn">cse.sschen23@gzu.edu.cn</a></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
