@@ -1,0 +1,117 @@
+/* ============ 文章页 · 科研素雅风格（覆盖主页像素风） ============ */
+
+/* 素色背景，去掉粉色渐变与网格 */
+body {
+  background: #fbfbfc;
+  background-image: none;
+  font-family: "PingFang SC", "Microsoft YaHei", "SimHei", sans-serif;
+  color: #24292f;
+}
+
+/* 隐藏天空云朵与星星 */
+.sky { display: none; }
+
+/* 导航素雅化 */
+.nav {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid #e5e7eb;
+}
+.nav-logo { font-family: Georgia, "Times New Roman", serif; font-size: 16px; color: #1f3a5f; letter-spacing: 0; }
+.nav-links a { color: #6b7280; }
+.nav-links a:hover { color: #1f3a5f; }
+
+/* 文章主体：更窄的阅读栏宽 */
+.article-main { max-width: 720px; margin: 0 auto; padding: 56px 28px 88px; }
+
+/* 头部：左对齐，像论文标题 */
+.article-header { text-align: left; margin-bottom: 42px; }
+.article-title {
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", Georgia, serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.42;
+  letter-spacing: 0.5px;
+  margin-bottom: 18px;
+}
+.article-meta { justify-content: flex-start; gap: 14px; color: #9ca3af; font-size: 13px; }
+.article-tag {
+  background: transparent;
+  color: #6b7280;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  padding: 2px 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.article-rule {
+  width: 100%;
+  max-width: none;
+  height: 1px;
+  margin: 28px 0 0;
+  background: #e5e7eb;
+}
+
+/* 正文 */
+.article { font-size: 16.5px; color: #24292f; }
+.article p { line-height: 1.95; margin-bottom: 20px; }
+.article strong { color: #111827; font-weight: 700; }
+
+/* 引用：细竖线 + 极淡灰底 */
+.article blockquote {
+  margin: 28px 0;
+  padding: 18px 22px;
+  background: #f5f6f8;
+  border-left: 3px solid #1f3a5f;
+  color: #4b5563;
+  font-size: 15.5px;
+  border-radius: 0 4px 4px 0;
+  box-shadow: none;
+}
+.article blockquote p { margin: 0; line-height: 1.85; }
+
+/* 列表 */
+.article ol { margin: 0 0 22px 26px; }
+.article ol li { margin-bottom: 12px; line-height: 1.9; }
+
+/* 表格：细线科研风 */
+.article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 26px 0;
+  font-size: 14px;
+  background: #fff;
+  box-shadow: none;
+  border: 1px solid #e5e7eb;
+}
+.article table th,
+.article table td {
+  padding: 11px 14px;
+  border: 1px solid #e5e7eb;
+}
+.article table th {
+  background: #f3f4f6;
+  color: #111827;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.article table tr:nth-child(even) td { background: #fafafa; }
+/* 第一列（模型名）左对齐，更学术 */
+.article table td:first-child { text-align: left; font-weight: 500; }
+
+/* 页脚素雅化 */
+.footer {
+  border-top: 1px solid #e5e7eb;
+  color: #6b7280;
+  background: transparent;
+}
+.footer p { color: #6b7280; }
+.footer-link a { color: #1f3a5f; }
+.footer-link a:hover { color: #111827; }
+
+/* 响应式 */
+@media (max-width: 640px) {
+  .article-main { padding: 36px 18px 64px; }
+  .article-title { font-size: 26px; }
+  .article { font-size: 15.5px; }
+}
