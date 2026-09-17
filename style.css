@@ -78,6 +78,15 @@ main { position: relative; z-index: 1; }
 .section { max-width: 1080px; margin: 0 auto; padding: 40px 24px; }
 .section-wide { max-width: 1320px; }
 .section-title { font-size: 24px; font-weight: 600; color: var(--blue-dark); text-align: center; margin-bottom: 20px; letter-spacing: 3px; }
+.section-title::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 2px;
+  margin: 12px auto 0;
+  background: var(--ink-blue);
+  border-radius: 1px;
+}
 
 .wall-hint { text-align: center; font-size: 13px; color: var(--text-sub); margin-bottom: 28px; }
 
@@ -358,14 +367,7 @@ main { position: relative; z-index: 1; }
   border-radius: 2px;
 }
 
-/* ============ 学习笔记（标题 + 墨蓝色长细线） ============ */
-.note-rule {
-  width: 56%;
-  max-width: 520px;
-  height: 2px;
-  margin: 24px auto 20px;
-  background: var(--ink-blue);
-}
+/* ============ 学习笔记（查看全部链接） ============ */
 .note-rule-link {
   display: block;
   text-align: center;
@@ -380,31 +382,30 @@ main { position: relative; z-index: 1; }
 /* ============ 学习笔记列表（首页） ============ */
 .notes-list {
   list-style: none;
-  max-width: 600px;
-  margin: 0 auto 18px;
+  max-width: 620px;
+  margin: 0 auto 22px;
   padding: 0;
 }
-.notes-item { margin-bottom: 12px; }
+.notes-item { margin: 0; }
 .notes-link {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  padding: 15px 20px;
-  background: var(--card);
-  border: 2px solid var(--border);
-  border-radius: 6px;
+  padding: 16px 22px;
+  background: #fff;
+  border: 1px solid #e8ecf1;
+  border-bottom: none;
   text-decoration: none;
-  box-shadow: 0 2px 8px var(--shadow);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: background 0.2s ease, padding-left 0.25s ease;
 }
+.notes-item:last-child .notes-link { border-bottom: 1px solid #e8ecf1; }
 .notes-link:hover {
-  transform: translateY(-2px);
-  border-color: var(--pink);
-  box-shadow: 0 6px 16px var(--shadow);
+  background: #f7f9fc;
+  padding-left: 28px;
 }
-.notes-title { font-size: 14.5px; font-weight: 700; color: var(--ink-blue); line-height: 1.5; }
-.notes-date { font-size: 12px; color: var(--text-sub); white-space: nowrap; }
+.notes-title { font-size: 14.5px; font-weight: 600; color: var(--ink-blue); line-height: 1.5; }
+.notes-date { font-size: 12px; color: #9ca3af; white-space: nowrap; }
 
 /* ============ 博客文章页 ============ */
 .article-main { max-width: 780px; margin: 0 auto; padding: 40px 24px 60px; }
