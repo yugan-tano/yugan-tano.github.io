@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>研究没那么神秘：一次实验翻车教会我找创新点 — 陈杉杉</title>
+<meta name="description" content="以 2018 年 ECCV 的 ShuffleNetV2 为例，聊聊从一次实验翻车中得到的关于「找创新点」的启发。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<!-- 天空背景（云朵 + 星星） -->
+<div class="sky" aria-hidden="true">
+  <div class="cloud cloud-1"></div>
+  <div class="cloud cloud-2"></div>
+  <div class="cloud cloud-3"></div>
+  <div class="star star-1"></div>
+  <div class="star star-2"></div>
+  <div class="star star-3"></div>
+  <div class="star star-4"></div>
+  <div class="star star-5"></div>
+</div>
+
+<!-- 导航 -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">🌸 Chen</a>
+    <div class="nav-links">
+      <a href="index.html#wall">项目墙</a>
+      <a href="index.html#notes">笔记</a>
+    </div>
+  </div>
+</nav>
+
+<main class="article-main">
+  <header class="article-header">
+    <h1 class="article-title">研究没那么神秘：一次实验翻车教会我找创新点</h1>
+    <div class="article-meta">
+      <span>2026-09-18</span>
+      <span class="article-tag">随笔</span>
+      <span class="article-tag">ShuffleNetV2</span>
+      <span class="article-tag">可解释性</span>
+      <span class="article-tag">操作系统</span>
+    </div>
+    <div class="article-rule"></div>
+  </header>
+
+  <article class="article">
+    <blockquote>
+      <p>我从来没有拷打过任何人，除了今天拷打自己。面试准备期跟重做没区别……</p>
+    </blockquote>
+
+    <p>后天就要面试了。检查项目的时候，我注意到这个实验设计不合理。</p>
+
+    <p>我做的对比实验，测出来延迟是这样的：</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>模型</th>
+          <th>准确率</th>
+          <th>参数量</th>
+          <th>延迟</th>
+          <th>FPS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>MobileNetV3-Large</td><td>85.96%</td><td>4.21M</td><td>108.59ms</td><td>9.2</td></tr>
+        <tr><td>ResNet50</td><td>84.81%</td><td>23.52M</td><td>95.81ms</td><td>10.4</td></tr>
+        <tr><td>EfficientNet-B0</td><td>86.62%</td><td>4.01M</td><td>47.60ms</td><td>21.0</td></tr>
+        <tr><td>ShuffleNetV2</td><td>85.47%</td><td>1.26M</td><td>48.61ms</td><td>20.6</td></tr>
+      </tbody>
+    </table>
+
+    <p>嗯？我当时模型选择的主要依据是什么来着？(之前做实验的自己习惯差得可以啊，你是一点不沉淀）</p>
+
+    <p>往下一看竟然是“轻量化”。我瞬间无语凝噎了，<br>
+    <strong>怎么没有对比同参数量的模型就直接来对比这些主流选手了？</strong><br>
+    怎么选的是MobileNetV3-<strong>Large</strong>（你咋不选Small？）<br>
+    还有啥经典基线ResNet50都来了，你看看你这23.52M的参数量……<br>
+    于是我紧急补课，顺着最终部署的ShuffleNetV2，先了解了同系列的区别，再去找一样轻量化的模型……</p>
+
+    <blockquote>
+      <p>一味追求 FLOPs 的降低，但是内存访问成本变高、网络碎片化等问题没解决，实际运行时间反而会变长。</p>
+    </blockquote>
+
+    <p>看到这里我脑中灵光一闪，突然悟了。</p>
+
+    <p><strong>我认为，如果想改进一个关于耗时的算法，我们可以尝试的观察方向是：</strong></p>
+
+    <ol>
+      <li>了解整个流程，每一个模块是如何工作的，它的原理是什么；</li>
+      <li>了解每个步骤之后，把它还原到操作系统、硬件上是如何执行的，每一步的耗时都找出来；</li>
+      <li>这个时候我们可以注意到哪个环节出现问题，并返回到算法层面，思考解决方法。</li>
+    </ol>
+
+    <p><strong>更笼统地说，找创新点其实就是去找问题和局限。</strong></p>
+
+    <p>所以<strong>可解释性</strong>很重要。有了可解释性，我们就能更好地理解并尝试如何修改模型。这个思路在准确率上也可以沿用。</p>
+
+    <p>找出难解释的算法，增强其可解释性，也是一个不错的方向（我个人觉得）。这里我们引入数学学科。</p>
+
+    <p>果然操作系统也应该好好学（毕竟是计算机的基础）。</p>
+
+    <p>看到这里大家会不会觉得，其实研究也没那么神秘呢？这篇随笔我是以 2018 年 ECCV 的 ShuffleNetV2 为例，得到的启发。</p>
+
+    <p>只需要观察文章的一句话，就可以倒推作者是如何发现问题、以怎样的思维设计、最终如何解决的。看到数据后，又可以观察改进效果能支撑这个结论到哪一步。</p>
+
+    <blockquote>
+      <p>3年学习效率不如面试前一天，<br>
+      我前几年果然是使用了大脑消失术吧。<br>
+      希望最后不要变成《重新检查项目结果找到了100个设计不合理的地方》。</p>
+    </blockquote>
+  </article>
+</main>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <p>🌸 陈杉杉 · Shanshan Chen</p>
+  <p class="footer-link"><a href="index.html">返回首页</a> · <a href="https://github.com/yugan-tano">GitHub 主页</a></p>
+</footer>
+
+</body>
+</html>
